@@ -13,16 +13,13 @@
   --color-primary: #875cf5;
 }
 
-
-
-
 @layer base {
   html {
     font-family: var(--font-display);
   }
 
   body {
-    background-color: #fcfbfc;
+    background-color: #ffe6ff;
     overflow: hidden;
   }
 }
