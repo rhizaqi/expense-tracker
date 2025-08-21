@@ -1,17 +1,36 @@
 import { useState } from "react";
 import AuthLayout from "../../components/layouts/AuthLayout";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Input from "../../components/inputs/input";
+import { validateEmail } from "../../utility/helper";
+
 
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
 
   const navigate = useNavigate();
 
   //Handle Login Form Submit
 
-  const handleLogin = async () => {};
+  const handleLogin = async (event) => {
+    event.preventDefault();
+
+    if (!validateEmail(email)) {
+      setError("Please enter a valid email address");
+      return;
+    }
+
+    if (!password) {
+      setError("Please enter the password");
+      return;
+    }
+
+    setError("");
+
+    //Login API Call
+  };
 
   return (
     <AuthLayout>
@@ -37,6 +56,19 @@ export default function Login() {
             placeholder="Minimal 8 Characters"
             type="password"
           />
+
+          {error && <p className="text-red-500 text-xs pb-2.5"> {error}</p>}
+
+          <button type="submit" className="btn-primary">
+            LOGIN
+          </button>
+
+          <p>
+            Don't have an account?{" "}
+            <Link className="font-medium text-primary underline" to="/signup">
+              SignUp
+            </Link>
+          </p>
         </form>
       </div>
     </AuthLayout>

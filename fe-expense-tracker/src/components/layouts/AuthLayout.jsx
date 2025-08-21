@@ -16,7 +16,7 @@ export default function AuthLayout({ children }) {
 
         <div className="grid grid-cols-1 z-20">
           <StatsInfoCard
-            icon={<LuTrendingUpDown className="my-2"/>}
+            icon={<LuTrendingUpDown className="my-2.5 "/>}
             label="Track Your Income & Expenses"
             value="430.000"
             color="bg-indigo-950"
