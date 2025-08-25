@@ -4,7 +4,6 @@ import { Link, useNavigate } from "react-router-dom";
 import Input from "../../components/inputs/input";
 import { validateEmail } from "../../utility/helper";
 
-
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
