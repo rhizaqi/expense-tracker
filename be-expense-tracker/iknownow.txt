@@ -1,0 +1,10 @@
+use this for generating secret keys or tokens
+>>
+node -e "console.log(require('crypto').randomBytes(64).toString('hex'))"
+
+
+SCRIPT IN PACKAGE.JSON
+  "start": "node server.js",
+    "dev": "nodemon app.js"
+so if i didnt use script i gotta use npx nodemon app.js
+an if i use script it will run use npm run dev
