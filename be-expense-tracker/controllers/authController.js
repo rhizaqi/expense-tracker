@@ -8,10 +8,16 @@ const generateToken = (id) => {
 
 // Register User
 exports.registerUser = async (req, res) => {
+  // if (!req.body) {
+  //   return res.status(400).json({ message: "Request body is missing" });
+  // }
+
+  // so if i didnt insert headers in postman key as Content-Type and value as application/json my test in postman will got error because it cant  destructure property 'fullName' of 'req.body' as it is undefined.
+
   const { fullName, email, password, profileImageUrl } = req.body;
 
   // Validation check for missing files
-  if (!fullName || !email || !password || !profileImageUrl) {
+  if (!fullName || !email || !password) {
     return res.status(400).json({ message: "All field are required" });
   }
 
@@ -24,7 +30,7 @@ exports.registerUser = async (req, res) => {
 
     // Create the user
     const user = await User.create({
-      fullName  ,
+      fullName,
       email,
       password,
       profileImageUrl,
