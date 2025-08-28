@@ -19,6 +19,9 @@ router.post("/upload-image", upload.single("image"), (req, res) => {
   const imageUrl = `${req.protocol}://${req.get("host")}/uploads/${
     req.file.filename
   }`;
+
+  // update profileImageUrl in mongoDB
+  
   res.status(200).json({ imageUrl });
 });
 
