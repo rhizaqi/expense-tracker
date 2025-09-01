@@ -1,8 +1,9 @@
-export default function Home  ()  {
+import DashboardLayout from "../../components/layouts/DashboardLayout";
 
-    return (
-        <>
-        this is Home page
-        </>
-    )
-} 
+export default function Home() {
+  return (
+    <DashboardLayout activeMenu="Dashboard">
+      <div className="my-5 mx-auto">ini home</div>
+    </DashboardLayout>
+  );
+}
