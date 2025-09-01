@@ -72,6 +72,8 @@ exports.loginUser = async (req, res) => {
       token: generateToken(user._id),
     });
   } catch (error) {
+    // console.log(error,111111111);
+
     res.status(500).json({ message: "Error login user", error: error.message });
   }
 };

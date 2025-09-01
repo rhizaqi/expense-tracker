@@ -52,13 +52,13 @@ exports.getAllExpense = async (req, res) => {
 };
 
 //Delete expense source
-exports.downloadExpense = async (req, res) => {
+exports.deleteExpense = async (req, res) => {
   console.log(req.params.id);
 
   try {
     await Expense.findByIdAndDelete(req.params.id);
     res.status(200).json({
-      message: "Income deleted successfully",
+      message: "Expense deleted successfully",
     });
   } catch (error) {
     res.status(500).json({
@@ -67,8 +67,8 @@ exports.downloadExpense = async (req, res) => {
   }
 };
 
-//Download expense source
-exports.deleteExpense = async (req, res) => {
+//Download expense category
+exports.downloadExpense = async (req, res) => {
   const userId = req.user.id;
 
   try {
@@ -77,7 +77,7 @@ exports.deleteExpense = async (req, res) => {
     // Prepare data for excel
 
     const data = expense.map((el) => ({
-      Source: el.source,
+      Category: el.category,
       Amounth: el.amount,
       Date: el.date,
     }));
