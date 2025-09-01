@@ -9,23 +9,26 @@ import SignUp from "./pages/Auth/SignUp";
 import Home from "./pages/Dashboard/Home";
 import Income from "./pages/Dashboard/Income";
 import Expense from "./pages/Dashboard/Expense";
+import UserProvider from "./context/userContext";
 
 // import './App.css'
 
 function App() {
   return (
-    <div>
-      <Router>
-        <Routes>
-          <Route path="/" element={<Root />} />
-          <Route path="/login" excact element={<Login />} />
-          <Route path="/signup" excact element={<SignUp />} />
-          <Route path="/dashboard" excact element={<Home />} />
-          <Route path="/income" excact element={<Income />} />
-          <Route path="/expense" excact element={<Expense />} />
-        </Routes>
-      </Router>
-    </div>
+    <UserProvider>
+      <div>
+        <Router>
+          <Routes>
+            <Route path="/" element={<Root />} />
+            <Route path="/login" excact element={<Login />} />
+            <Route path="/signup" excact element={<SignUp />} />
+            <Route path="/dashboard" excact element={<Home />} />
+            <Route path="/income" excact element={<Income />} />
+            <Route path="/expense" excact element={<Expense />} />
+          </Routes>
+        </Router>
+      </div>
+    </UserProvider>
   );
 }
 
