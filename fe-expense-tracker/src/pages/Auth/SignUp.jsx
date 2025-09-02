@@ -6,7 +6,7 @@ import { validateEmail } from "../../utility/helper";
 import ProfilePhotoSelector from "../../components/inputs/ProfilePhotoSelector";
 import axiosInstance from "../../utility/axiosInstance";
 import { API_PATH } from "../../utility/apiPath";
-import { UserContext } from "../../context/UserContext";
+import { UserContext } from "../../context/userContext";
 
 export default function SignUp() {
   const [profilePict, setProfilePict] = useState(null);
