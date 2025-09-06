@@ -1,14 +1,17 @@
 import { useContext, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { UserContext } from "../context/userContext";
 import axiosInstance from "../utility/axiosInstance";
 import { API_PATH } from "../utility/apiPath";
+import { useNavigate } from "react-router-dom";
 
 export default function useUserAuth() {
-  const { user, updateUser, clearUser } = useContext();
+  const { user, updateUser, clearUser } = useContext(UserContext);
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (user) return;
+    if (user) {
+      return;
+    }
 
     let isMounted = true;
 
@@ -20,13 +23,15 @@ export default function useUserAuth() {
           updateUser(response.data);
         }
       } catch (error) {
-        console.error("Failed to fetch user info", error);
+        console.log("Failed to fetch user info", error);
+
         if (isMounted) {
           clearUser();
           navigate("/login");
         }
       }
     };
+
     fetchUserInfo();
 
     return () => {
