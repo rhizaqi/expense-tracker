@@ -44,12 +44,13 @@ exports.getDashboardData = async (req, res) => {
     // Get total income for last 60 days
 
     const incomesLast60Days = last60DaysIncomeTransactions.reduce(
-      (sum, tranaction) => sum + tranaction.amount
-    );
+      (sum, transaction) => sum + (parseFloat(transaction.amount) || 0),
+      0
+    ); // use parseFloat because data is string
 
     // Get expense transactions in the last 30 days
 
-    const last30DaysExpenseTransactions = await Income.find({
+    const last30DaysExpenseTransactions = await Expense.find({
       userId,
       date: {
         $gte: new Date(Date.now() - 30 * 24 * 60 * 60 * 1000),
@@ -58,9 +59,9 @@ exports.getDashboardData = async (req, res) => {
 
     // Get total expenses for last 30 days
     const expensesLast30Days = last30DaysExpenseTransactions.reduce(
-      (sum, tranaction) => sum + tranaction.amount
+      (sum, transaction) => sum + (parseFloat(transaction.amount) || 0),
+      0
     );
-
     // Fetch last 5 transactions (Income + Expenses)
 
     const lastTransactions = [

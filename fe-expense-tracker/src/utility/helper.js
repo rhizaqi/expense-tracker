@@ -1,3 +1,5 @@
+import moment from "moment";
+
 export const validateEmail = (email) => {
   const regex = /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,5})$/;
   return regex.test(email);
@@ -28,4 +30,14 @@ export const addThousandsSeparator = (num) => {
   return fractionalPart
     ? `${formatedInteger}.${fractionalPart}`
     : formatedInteger;
+};
+
+export const prepareExpenseBarChartData = (data = []) => {
+  const chartData = data.map((item) => ({
+    category: item?.category,
+    amount: item?.amount,
+    // month: item?.date
+  }));
+
+  return chartData;
 };
