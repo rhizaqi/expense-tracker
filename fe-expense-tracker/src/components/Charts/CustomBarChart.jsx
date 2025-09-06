@@ -43,7 +43,7 @@ export default function CustomBarChart({ data }) {
         <BarChart data={data}>
           <CartesianGrid stroke="none" />
           <XAxis
-            dataKey="category"
+            dataKey="category" // for now based on category expenses
             tick={{ fontSize: 12, fill: "#555" }}
             stroke="none"
           />
