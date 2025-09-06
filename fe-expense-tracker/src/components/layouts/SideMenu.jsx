@@ -33,7 +33,7 @@ export default function SideMenu({ activeMenu }) {
           <> </>
         )}
 
-        <h5 className="text-gray">{user?.fullName || ""}</h5>
+        <h5 className="text-gray-950 font-medium leading-6">{user?.fullName || ""}</h5>
       </div>
 
       {SIDE_MENU_DATA.map((item, index) => (
@@ -44,7 +44,7 @@ export default function SideMenu({ activeMenu }) {
           } py-3 px-6 rounded-lg mb-3`}
           onClick={() => handleClickSideMenu(item.path)}
         >
-          <item.icon />
+          <item.icon className="text-xl "/>
           {item.label}
         </button>
       ))}
