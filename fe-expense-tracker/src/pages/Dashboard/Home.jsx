@@ -11,6 +11,10 @@ import RecentIncomeWithChart from "../../components/Dashboard/RecentIncomeWithCh
 import RecentTransactions from "../../components/Dashboard/RecentTransactions";
 import FinanceOverview from "./FinanceOverview";
 import RecentIncome from "./RecentIncome";
+import InfoCard from "../../components/Cards/infoCard";
+import { LuHandCoins, LuWalletMinimal } from "react-icons/lu";
+import { IoMdCard } from "react-icons/io";
+import { addThousandsSeparator } from "../../utility/helper";
 
 export default function Home() {
   useUserAuth();
@@ -49,7 +53,7 @@ export default function Home() {
     <DashboardLayout activeMenu="Dashboard">
       <div className="my-5 mx-auto">
         <div>
-          {/* <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <InfoCard
             icon={<IoMdCard className="h-7 w-7" />}
             label="Total Balance"
@@ -68,13 +72,13 @@ export default function Home() {
             value={addThousandsSeparator(dashboardData?.totalExpense || 0)}
             color="bg-red-500"
           />
-        </div> */}
+        </div>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
-          {/* <RecentTransactions
+          <RecentTransactions
             transactions={dashboardData?.recentTransactions}
             onSeeMore={() => navigate("/expense")}
-          /> */}
+          />
 
           <FinanceOverview
             totalBalance={dashboardData?.totalBalance || 0}
@@ -82,14 +86,14 @@ export default function Home() {
             totalExpense={dashboardData?.totalExpense || 0}
           />
 
-          {/* <ExpenseTransactions
+          <ExpenseTransactions
             transactions={dashboardData?.last30DaysExpenses?.transactions || []}
             onSeeMore={() => navigate("/expense")}
           />
 
           <Last30DaysExpenses
             data={dashboardData?.last30DaysExpenses?.transactions || []}
-          /> */}
+          />
 
           <RecentIncomeWithChart
             data={
