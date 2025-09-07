@@ -16,6 +16,9 @@ export default function CustomePieChart({
   colors,
   showTextAnchor,
 }) {
+
+  console.log(data,`di custom pie chart`);
+  
   return (
     <ResponsiveContainer width="100%" height={380}>
       <PieChart>

@@ -7,6 +7,9 @@ import { API_PATH } from "../../utility/apiPath";
 
 import ExpenseTransactions from "../../components/Dashboard/ExpenseTransactions";
 import Last30DaysExpenses from "../../components/Dashboard/Last30DaysExpenses";
+import RecentIncomeWithChart from "../../components/Dashboard/RecentIncomeWithChart";
+import RecentTransactions from "../../components/Dashboard/RecentTransactions";
+import FinanceOverview from "./FinanceOverview";
 
 export default function Home() {
   useUserAuth();
@@ -70,21 +73,29 @@ export default function Home() {
           {/* <RecentTransactions
             transactions={dashboardData?.recentTransactions}
             onSeeMore={() => navigate("/expense")}
-          />
+          /> */}
 
           <FinanceOverview
             totalBalance={dashboardData?.totalBalance || 0}
             totalIncome={dashboardData?.totalIncome || 0}
             totalExpense={dashboardData?.totalExpense || 0}
-          /> */}
+          />
+          
 
-          <ExpenseTransactions
+          {/* <ExpenseTransactions
             transactions={dashboardData?.last30DaysExpenses?.transactions || []}
             onSeeMore={() => navigate("/expense")}
           />
 
           <Last30DaysExpenses
             data={dashboardData?.last30DaysExpenses?.transactions || []}
+          /> */}
+
+          <RecentIncomeWithChart
+            data={
+              dashboardData?.last60DaysIncome?.transactions?.slice(0, 4) || []
+            }
+            totalIncome={dashboardData?.totalIncome || 0}
           />
         </div>
       </div>
