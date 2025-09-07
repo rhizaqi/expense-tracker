@@ -2,13 +2,13 @@ import { LuArrowRight } from "react-icons/lu";
 import TransactionsInfoCard from "../../components/Cards/TransactionsInfoCard";
 import moment from "moment";
 
-export default function RecentIncome({ transactions, oneSeeMore }) {
+export default function RecentIncome({ transactions, onSeeMore }) {
   return (
     <div className="card">
       <div className="flex items-center justify-between">
         <h5 className="text-lg">Income</h5>
 
-        <button className="card-btn">
+        <button className="card-btn" onClick={onSeeMore}>
           See All <LuArrowRight className="text-base" />
         </button>
       </div>

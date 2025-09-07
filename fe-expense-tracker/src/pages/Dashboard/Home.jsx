@@ -54,25 +54,25 @@ export default function Home() {
       <div className="my-5 mx-auto">
         <div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <InfoCard
-            icon={<IoMdCard className="h-7 w-7" />}
-            label="Total Balance"
-            value={addThousandsSeparator(dashboardData?.totalBalance || 0)}
-            color="bg-purple-400"
-          />
-          <InfoCard
-            icon={<LuHandCoins className="h-7 w-7" />}
-            label="Total Incomes"
-            value={addThousandsSeparator(dashboardData?.totalIncome || 0)}
-            color="bg-orange-500"
-          />
-          <InfoCard
-            icon={<LuWalletMinimal className="h-7 w-7" />}
-            label="Total Expenses"
-            value={addThousandsSeparator(dashboardData?.totalExpense || 0)}
-            color="bg-red-500"
-          />
-        </div>
+            <InfoCard
+              icon={<IoMdCard className="h-7 w-7" />}
+              label="Total Balance"
+              value={addThousandsSeparator(dashboardData?.totalBalance || 0)}
+              color="bg-purple-400"
+            />
+            <InfoCard
+              icon={<LuHandCoins className="h-7 w-7" />}
+              label="Total Incomes"
+              value={addThousandsSeparator(dashboardData?.totalIncome || 0)}
+              color="bg-orange-500"
+            />
+            <InfoCard
+              icon={<LuWalletMinimal className="h-7 w-7" />}
+              label="Total Expenses"
+              value={addThousandsSeparator(dashboardData?.totalExpense || 0)}
+              color="bg-red-500"
+            />
+          </div>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
           <RecentTransactions

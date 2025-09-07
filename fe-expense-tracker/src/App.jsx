@@ -23,8 +23,8 @@ function App() {
             <Route path="/login" excact element={<Login />} />
             <Route path="/signup" excact element={<SignUp />} />
             <Route path="/dashboard" excact element={<Home />} />
-            <Route path="/income" excact element={<Income />} />
             <Route path="/expense" excact element={<Expense />} />
+            <Route path="/income" excact element={<Income />} />
           </Routes>
         </Router>
       </div>

@@ -12,7 +12,7 @@ import {
 
 export default function CustomBarChart({ data }) {
   // function to alternate colors
-  console.log(data, `di custom bar chart`);
+  // console.log(data, `di custom bar chart`);
 
   const getBarColor = (index) => {
     return index % 2 === 0 ? "#875cf5" : "#cfbefb";
@@ -43,7 +43,7 @@ export default function CustomBarChart({ data }) {
         <BarChart data={data}>
           <CartesianGrid stroke="none" />
           <XAxis
-            dataKey="category" // for now based on category expenses
+            dataKey="month" // for now based on category expenses
             tick={{ fontSize: 12, fill: "#555" }}
             stroke="none"
           />

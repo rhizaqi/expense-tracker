@@ -6,16 +6,14 @@ const COLORS = ["#875CF5", "#FA2C37", "#FF6900", "#4F39F6"];
 export default function RecentIncomeWithChart({ data, totalIncome }) {
   const [chartData, setChartData] = useState([]);
 
-  // console.log(data, 999999);
-  // console.log(totalIncome, `xxxxxxxxxxxx`);
-  console.log(chartData, `yyyyyyyyyyyy`);
+  // console.log(chartData, `yyyyyyyyyyyy`);
 
   const prepareChartData = () => {
     const dataArr = data?.map((item) => ({
       name: item?.source,
       amount: Number(item?.amount), // customePieChart amount need number
     }));
-    console.log("Prepared chart data:", dataArr);
+    // console.log("Prepared chart data:", dataArr);
     setChartData(dataArr);
   };
 

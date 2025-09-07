@@ -17,7 +17,7 @@ export default function CustomePieChart({
   showTextAnchor,
 }) {
 
-  console.log(data,`di custom pie chart`);
+  // console.log(data,`di custom pie chart`);
   
   return (
     <ResponsiveContainer width="100%" height={380}>
