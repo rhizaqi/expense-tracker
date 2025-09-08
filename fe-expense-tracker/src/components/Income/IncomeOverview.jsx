@@ -7,8 +7,26 @@ export default function IncomeOverview({ transactions, onAddIncome }) {
   const [chartData, setChartData] = useState([]);
 
   useEffect(() => {
+    // console.log(transactions,9999999);
+
     const result = prepareIncomeBarChartData(transactions);
-    setChartData(result);
+
+    const groupedData = Object.values(
+      result.reduce((acc, curr) => {
+        const month = curr.month;
+        const amount = parseFloat(curr.amount); // Convert string to number
+
+        if (!acc[month]) {
+          acc[month] = { month, amount };
+        } else {
+          acc[month].amount += amount;
+        }
+
+        return acc;
+      }, {})
+    ); // incase there is more than one income in one month
+
+    setChartData(groupedData);
 
     return () => {};
   }, [transactions]);

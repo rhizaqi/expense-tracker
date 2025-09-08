@@ -5,6 +5,7 @@ import axiosInstance from "../../utility/axiosInstance";
 import { API_PATH } from "../../utility/apiPath";
 import Modal from "../../components/Modal";
 import AddIncomeForm from "../../components/Income/AddIncomeForm";
+import toast from "react-hot-toast";
 
 export default function Income() {
   const [openAddIncomeModal, setOpenAddIncomeModal] = useState(false);
@@ -37,7 +38,40 @@ export default function Income() {
   };
 
   // Handle Add Income
-  const handleAddIncome = async (income) => {};
+  const handleAddIncome = async (income) => {
+    const { source, amount, date, icon } = income;
+
+    // Validation
+
+    if (!source.trim()) {
+      toast.error("Source is required");
+      return;
+    }
+
+    if (!amount || isNaN(amount) || Number(amount) <= 0) {
+      toast.error("Amount should be greater than 0.");
+      return;
+    }
+
+    try {
+      await axiosInstance.post(API_PATH.INCOME.ADD_INCOME, {
+        source,
+        amount,
+        date,
+        icon,
+      });
+
+      setOpenAddIncomeModal(false);
+      toast.success("Income added successfully");
+
+      fetchIncomeDetails();
+    } catch (error) {
+      console.log(
+        "Error adding income",
+        error.response?.data?.message || error.message
+      );
+    }
+  };
 
   // Delete Income
   const deleteIncome = async () => {};
