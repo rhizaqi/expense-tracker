@@ -8,8 +8,11 @@ import AddIncomeForm from "../../components/Income/AddIncomeForm";
 import toast from "react-hot-toast";
 import IncomeList from "../../components/Income/IncomeList";
 import DeleteAlert from "../../components/DeleteAlert";
+import useUserAuth from "../../hooks/useUserAuth";
 
 export default function Income() {
+  useUserAuth();
+
   const [openAddIncomeModal, setOpenAddIncomeModal] = useState(false);
   const [incomeData, setIncomeData] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -33,7 +36,7 @@ export default function Income() {
         setIncomeData(response.data);
       }
     } catch (error) {
-      console.error(`Something `, error);
+      console.log(`Something went wrong. Please try again.`, error);
     } finally {
       setLoading(false);
     }
