@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { LuPlus } from "react-icons/lu";
 import { prepareExpenseLineChartData } from "../../utility/helper";
 import CustomLineChart from "../Charts/CustomLineChart";
+import toast from "react-hot-toast";
+
 
 export default function ExpenseOverview({ transactions, onAddExpense }) {
   const [chartData, setChartData] = useState([]);
@@ -9,22 +11,22 @@ export default function ExpenseOverview({ transactions, onAddExpense }) {
   useEffect(() => {
     const result = prepareExpenseLineChartData(transactions);
 
-    // const groupedData = Object.values(
-    //   result.reduce((acc, curr) => {
-    //     const month = curr.month;
-    //     const amount = parseFloat(curr.amount); // Convert string to number
+    const groupedData = Object.values(
+      result.reduce((acc, curr) => {
+        const month = curr.month;
+        const amount = parseFloat(curr.amount); // Convert string to number
 
-    //     if (!acc[month]) {
-    //       acc[month] = { month, amount };
-    //     } else {
-    //       acc[month].amount += amount;
-    //     }
+        if (!acc[month]) {
+          acc[month] = { month, amount };
+        } else {
+          acc[month].amount += amount;
+        }
 
-    //     return acc;
-    //   }, {})
-    // );
+        return acc;
+      }, {})
+    );
 
-    setChartData(result);
+    setChartData(groupedData);
   }, [transactions]);
   return (
     <div className="card">

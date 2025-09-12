@@ -43,12 +43,12 @@ export default function Expense() {
 
   // Handle Add Expense
   const handleAddExpense = async (expense) => {
-    const { source, amount, date, icon } = expense;
+    const { category, amount, date, icon } = expense;
 
     // Validation
 
-    if (!source.trim()) {
-      toast.error("Source is required");
+    if (!category.trim()) {
+      toast.error("Category is required");
       return;
     }
 
@@ -59,7 +59,7 @@ export default function Expense() {
 
     try {
       await axiosInstance.post(API_PATH.EXPENSE.ADD_EXPENSE, {
-        source,
+        category,
         amount,
         date,
         icon,
@@ -71,7 +71,7 @@ export default function Expense() {
       fetchExpenseDetails();
     } catch (error) {
       console.error(
-        "Error adding income",
+        "Error adding expense",
         error.response?.data?.message || error.message
       );
     }
@@ -130,7 +130,6 @@ export default function Expense() {
           onClose={() => setOpenAddExpenseModal(false)}
           title="Add Expense"
         >
-          <div className="dark:text-white">Add Income Form</div>
           <AddExpenseForm onAddExpense={handleAddExpense} />
         </Modal>
 
