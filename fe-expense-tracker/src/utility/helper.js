@@ -64,3 +64,17 @@ export const prepareIncomeBarChartData = (data = []) => {
 //     source: item.source,
 //   };
 // } << this is explicit return since i use curly braces so i have to write return so it do the return, but if i use parentheses its more common in map since it implicit-ly return
+
+export const prepareExpenseLineChartData = (data = []) => {
+  const sortedData = [...data].sort(
+    (a, b) => new Date(a.date) - new Date(b.date)
+  );
+
+  const chartData = sortedData.map((item) => ({
+    month: moment(item?.date).format("Do MMM"),
+    amount: item?.amount,
+    category: item?.category,
+  }));
+
+  return chartData;
+};

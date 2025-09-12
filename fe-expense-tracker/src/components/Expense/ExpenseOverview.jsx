@@ -1,39 +1,38 @@
 import { useEffect, useState } from "react";
-import CustomBarChart from "../Charts/CustomBarChart";
 import { LuPlus } from "react-icons/lu";
-import { prepareExpenseBarChartData } from "../../utility/helper";
-prepareExpenseBarChartData;
+import { prepareExpenseLineChartData } from "../../utility/helper";
+import CustomLineChart from "../Charts/CustomLineChart";
 
 export default function ExpenseOverview({ transactions, onAddExpense }) {
   const [chartData, setChartData] = useState([]);
 
   useEffect(() => {
-    const result = prepareExpenseBarChartData(transactions);
+    const result = prepareExpenseLineChartData(transactions);
 
-    const groupedData = Object.values(
-      result.reduce((acc, curr) => {
-        const month = curr.month;
-        const amount = parseFloat(curr.amount); // Convert string to number
+    // const groupedData = Object.values(
+    //   result.reduce((acc, curr) => {
+    //     const month = curr.month;
+    //     const amount = parseFloat(curr.amount); // Convert string to number
 
-        if (!acc[month]) {
-          acc[month] = { month, amount };
-        } else {
-          acc[month].amount += amount;
-        }
+    //     if (!acc[month]) {
+    //       acc[month] = { month, amount };
+    //     } else {
+    //       acc[month].amount += amount;
+    //     }
 
-        return acc;
-      }, {})
-    );
+    //     return acc;
+    //   }, {})
+    // );
 
-    setChartData(groupedData);
+    setChartData(result);
   }, [transactions]);
   return (
     <div className="card">
       <div className="flex items-center justify-between">
         <div className="">
-          <h5 className="text-lg">Income Overview</h5>
+          <h5 className="text-lg">Expense Overview</h5>
           <p className="text-xs text-gray-400 mt-0.5">
-            Track your earning over time and analyze your income trends.
+            Track your expense over time and gain insights your money goes.
           </p>
         </div>
 
@@ -44,7 +43,7 @@ export default function ExpenseOverview({ transactions, onAddExpense }) {
       </div>
 
       <div className="mt-10">
-        <CustomBarChart data={chartData} />
+        <CustomLineChart data={chartData} />
       </div>
     </div>
   );
