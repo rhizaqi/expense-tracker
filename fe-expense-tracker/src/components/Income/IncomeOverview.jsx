@@ -7,16 +7,10 @@ export default function IncomeOverview({ transactions, onAddIncome }) {
   const [chartData, setChartData] = useState([]);
 
   useEffect(() => {
-    // console.log(transactions,9999999);
-
     const result = prepareIncomeBarChartData(transactions);
-    // console.log(result,111111);
 
     const groupedData = Object.values(
       result.reduce((acc, curr) => {
-        // console.log(acc,`xxxxxxxxxxx`);
-        // console.log( curr,`???????`);
-
         const month = curr.month;
         const amount = parseFloat(curr.amount); // Convert string to number
 
@@ -31,7 +25,6 @@ export default function IncomeOverview({ transactions, onAddIncome }) {
     ); // incase there is more than one income in a day in one month
 
     setChartData(groupedData);
-
     return () => {};
   }, [transactions]);
   return (

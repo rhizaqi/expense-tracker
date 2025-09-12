@@ -2,8 +2,6 @@ import { useEffect, useState } from "react";
 import { LuPlus } from "react-icons/lu";
 import { prepareExpenseLineChartData } from "../../utility/helper";
 import CustomLineChart from "../Charts/CustomLineChart";
-import toast from "react-hot-toast";
-
 
 export default function ExpenseOverview({ transactions, onAddExpense }) {
   const [chartData, setChartData] = useState([]);
@@ -25,6 +23,9 @@ export default function ExpenseOverview({ transactions, onAddExpense }) {
         return acc;
       }, {})
     );
+
+    console.log(groupedData,`?>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>`);
+    
 
     setChartData(groupedData);
   }, [transactions]);

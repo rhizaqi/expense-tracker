@@ -8,6 +8,7 @@ import ExpenseOverview from "../../components/Expense/ExpenseOverview";
 import Modal from "../../components/Modal";
 import AddExpenseForm from "../../components/Expense/AddExpenseForm";
 import DeleteAlert from "../../components/DeleteAlert";
+import toast from "react-hot-toast";
 
 export default function Expense() {
   useUserAuth();
@@ -45,6 +46,7 @@ export default function Expense() {
   const handleAddExpense = async (expense) => {
     const { category, amount, date, icon } = expense;
 
+    console.log(date,`XXXXXXXXXXXXXXXXXXXXX`);
     // Validation
 
     if (!category.trim()) {
