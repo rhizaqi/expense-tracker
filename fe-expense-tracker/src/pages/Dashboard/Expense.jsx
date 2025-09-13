@@ -46,9 +46,7 @@ export default function Expense() {
   const handleAddExpense = async (expense) => {
     const { category, amount, date, icon } = expense;
 
-    console.log(date,`XXXXXXXXXXXXXXXXXXXXX`);
     // Validation
-
     if (!category.trim()) {
       toast.error("Category is required");
       return;
@@ -80,7 +78,6 @@ export default function Expense() {
   };
 
   // Delete Expense
-
   const deleteExpense = async (id) => {
     // console.log(id,99999999999999);
 

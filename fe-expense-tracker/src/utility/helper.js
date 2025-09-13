@@ -70,17 +70,12 @@ export const prepareExpenseLineChartData = (data = []) => {
     (a, b) => new Date(a.date) - new Date(b.date)
   );
 
-  console.log(sortedData,`???`);
-  
-
   const chartData = sortedData.map((item) => ({
     month: moment(item?.date).format("Do MMM"),
     amount: item?.amount,
     category: item?.category,
   }));
 
-  console.log(chartData,`data chart`);
-  
-
+  console.log(chartData, `data chart`);
   return chartData;
 };

@@ -10,6 +10,8 @@ export default function AddExpenseForm({ onAddExpense }) {
     icon: "",
   });
 
+  console.log(expense);
+
   const handleChange = (key, value) => {
     setExpense({
       ...expense,
@@ -31,14 +33,14 @@ export default function AddExpenseForm({ onAddExpense }) {
         type="text"
       />
       <Input
-        value={expense.source}
+        value={expense.amount}
         onChange={({ target }) => handleChange("amount", target.value)}
         label="Amount"
         placeholder=""
         type="number"
       />
       <Input
-        value={expense.source}
+        value={expense.date}
         onChange={({ target }) => handleChange("date", target.value)}
         label="Date"
         placeholder=""

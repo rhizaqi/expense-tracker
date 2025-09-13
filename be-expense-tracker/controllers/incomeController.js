@@ -20,7 +20,8 @@ exports.addIncome = async (req, res) => {
       icon,
       source,
       amount,
-      date: new Date(),
+      date,
+      // date: new Date(), non-activing new date, just in case i want to input data on a previous date
     });
 
     await newIncome.save();

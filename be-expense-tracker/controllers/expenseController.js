@@ -22,7 +22,8 @@ exports.addExpense = async (req, res) => {
       icon,
       category,
       amount,
-      date: new Date(),
+      date,
+      // date: new Date(), non-activing new date, just in case i want to input data on a previous date
     });
 
     await newExpense.save();

@@ -10,8 +10,6 @@ import {
 import CustomTooltip from "./CustomTooltip";
 
 export default function CustomLineChart({ data }) {
-  console.log(data, 1111);
-
   const customTooltip = ({ active, payload }) => {
     if (active && payload && payload.length) {
       return (
@@ -31,13 +29,7 @@ export default function CustomLineChart({ data }) {
       <ResponsiveContainer height={300} width="100%">
         <AreaChart data={data}>
           <defs>
-            <linearGradient
-              id="incomeGradient"
-              x1="0"
-              y1="0"
-              x2="0"
-              y2="1"
-            >
+            <linearGradient id="incomeGradient" x1="0" y1="0" x2="0" y2="1">
               <stop offset="5%" stopColor="#875cf5" stopOpacity={0.4} />
               <stop offset="95%" stopColor="#875cf5" stopOpacity={0} />
             </linearGradient>

@@ -24,9 +24,6 @@ export default function ExpenseOverview({ transactions, onAddExpense }) {
       }, {})
     );
 
-    console.log(groupedData,`?>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>`);
-    
-
     setChartData(groupedData);
   }, [transactions]);
   return (
